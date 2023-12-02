@@ -97,13 +97,16 @@ fn part1(input: &str) -> u32 {
     input
         .lines()
         .filter_map(|line| {
-            Game::try_from(line).ok().and_then(|game| {
-                if game.red_count <= 12 && game.green_count <= 13 && game.blue_count <= 14 {
-                    Some(game.id)
-                } else {
-                    None
-                }
-            })
+            Game::try_from(line).ok().and_then(
+                |Game {
+                     id,
+                     red_count,
+                     green_count,
+                     blue_count,
+                 }| {
+                    (red_count <= 12 && green_count <= 13 && blue_count <= 14).then_some(id)
+                },
+            )
         })
         .sum()
 }
