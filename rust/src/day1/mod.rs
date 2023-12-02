@@ -1,6 +1,6 @@
 use self::input::INPUT;
 
-pub mod input;
+mod input;
 
 pub fn start() {
     println!("Day 1 Part 1: {}", part1(INPUT));
@@ -133,15 +133,26 @@ pub fn part2(input: &str) -> u32 {
 
 #[cfg(test)]
 mod test {
-    use crate::day1::{input::TEST_INPUT_1, input::TEST_INPUT_2, part1, part2};
+    const TEST_INPUT_1: &str = r"1abc2
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet";
+
+    const TEST_INPUT_2: &str = r"two1nine
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen";
 
     #[test]
-    fn part_1() {
-        assert_eq!(part1(TEST_INPUT_1), 142);
+    fn part1() {
+        assert_eq!(crate::day1::part1(TEST_INPUT_1), 142);
     }
 
     #[test]
-    fn part_2() {
-        assert_eq!(part2(TEST_INPUT_2), 281);
+    fn part2() {
+        assert_eq!(crate::day1::part2(TEST_INPUT_2), 281);
     }
 }
