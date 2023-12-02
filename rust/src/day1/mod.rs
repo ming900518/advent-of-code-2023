@@ -103,20 +103,18 @@ pub fn part2(input: &str) -> u32 {
                     }
                 }
             }
+            let mut chars = input.chars();
             if start.is_none() {
-                let mut chars = input.chars();
                 for _ in 0..remove_from_front {
                     chars.next();
                 }
-                input = chars.as_str();
             }
             if end.is_none() {
-                let mut chars = input.chars();
                 for _ in 0..remove_from_back {
                     chars.next_back();
                 }
-                input = chars.as_str();
             }
+            input = chars.as_str();
             if start.is_some_and(|_| end.is_some()) {
                 break;
             }
