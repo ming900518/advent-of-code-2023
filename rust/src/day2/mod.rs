@@ -51,12 +51,6 @@ struct Game {
     blue_count: u32,
 }
 
-impl From<Game> for u32 {
-    fn from(val: Game) -> Self {
-        val.id
-    }
-}
-
 impl TryFrom<&str> for Game {
     type Error = ();
     fn try_from(value: &str) -> Result<Self, ()> {
